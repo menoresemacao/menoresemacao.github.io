@@ -1,136 +1,267 @@
-﻿<!DOCTYPE html>
-<html manifest="offline.appcache">
+<!DOCTYPE html>
+<html class="no-js" manifest="offline.appcache">
+
 <head>
-    <meta charset="UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-	<title>Menores em Ação - Fundação CASA Game</title>
-	
-	<!-- Standardised web app manifest -->
-	<link rel="manifest" href="appmanifest.json" />
-	
-	<!-- Allow fullscreen mode on iOS devices. (These are Apple specific meta tags.) -->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" />
-	<meta name="apple-mobile-web-app-capable" content="yes" />
-	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
-	<link rel="apple-touch-icon" sizes="256x256" href="icon-256.png" />
-	<meta name="HandheldFriendly" content="true" />
-	
-	<!-- Chrome for Android web app tags -->
-	<meta name="mobile-web-app-capable" content="yes" />
-	<link rel="shortcut icon" sizes="256x256" href="icon-256.png" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Menores em Ação</title>
+    <meta name="description" content="Projeto do Centro Universitário Senac Santo Amaro, na matéria de Projeto Integrador 2 - Produção Multimídia">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+    <meta name="robots" content="all,follow">
 
-    <!-- All margins and padding must be zero for the canvas to fill the screen. -->
-	<style type="text/css">
-		* {
-			padding: 0;
-			margin: 0;
-		}
-		html, body {
-			background: #000;
-			color: #fff;
-			overflow: hidden;
-			touch-action: none;
-			-ms-touch-action: none;
-		}
-		canvas {
-			touch-action-delay: none;
-			touch-action: none;
-			-ms-touch-action: none;
-		}
-    </style>
-	
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <link rel="apple-touch-icon" sizes="256x256" href="icon-256.png" />
+    <meta name="HandheldFriendly" content="true" />
 
-</head> 
- 
-<body> 
-	<div id="fb-root"></div>
-	
-	<script>
-	// Issue a warning if trying to preview an exported project on disk.
-	(function(){
-		// Check for running exported on file protocol
-		if (window.location.protocol.substr(0, 4) === "file")
-		{
-			alert("Exported games won't work until you upload them. (When running on the file:/// protocol, browsers block many features from working for security reasons.)");
-		}
-	})();
-	</script>
-	
-	<!-- The canvas must be inside a div called c2canvasdiv -->
-	<div id="c2canvasdiv">
-	
-		<!-- The canvas the project will render to.  If you change its ID, don't forget to change the
-		ID the runtime looks for in the jQuery events above (ready() and cr_sizeCanvas()). -->
-		<canvas id="c2canvas" width="800" height="600">
-			<!-- This text is displayed if the visitor's browser does not support HTML5.
-			You can change it, but it is a good idea to link to a description of a browser
-			and provide some links to download some popular HTML5-compatible browsers. -->
-			<h1>Your browser does not appear to support HTML5.  Try upgrading your browser to the latest version.  <a href="http://www.whatbrowser.org">What is a browser?</a>
-			<br/><br/><a href="http://www.microsoft.com/windows/internet-explorer/default.aspx">Microsoft Internet Explorer</a><br/>
-			<a href="http://www.mozilla.com/firefox/">Mozilla Firefox</a><br/>
-			<a href="http://www.google.com/chrome/">Google Chrome</a><br/>
-			<a href="http://www.apple.com/safari/download/">Apple Safari</a></h1>
-		</canvas>
-		
-	</div>
-	
-	<!-- Pages load faster with scripts at the bottom -->
-	
-	<!-- Construct 2 exported games require jQuery. -->
-	<script src="jquery-2.1.1.min.js"></script>
+    <!-- Favicon para Chrome e Android -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <link rel="shortcut icon" sizes="256x256" href="icon-256.png" />
+
+    <!-- Bootstrap e Font Awesome CSS-->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/font-awesome-animation.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- Google Fonts - Montserrat para Heading, Cardo para textos-->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Montserrat:400,700|Cardo:400,400italic,700">
+
+    <!-- CSS para rolagem em Landing Page-->
+    <link rel="stylesheet" href="css/onepage-scroll.css">
+
+    <!-- CSS do tema-->
+    <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
+
+    <!-- CSS para customizações -->
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- Para IE antigos -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="main">
+
+            <!-- página 1-->
+            <section id="page1">
+                <div class="content">
+                    <div class="container clearfix">
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2 col-sm-12">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="icon faa-float animated"><i class="fa fa-angle-double-down"></i></div>
+            </section>
+
+            <!-- página 2 - O Game -->
+
+            <section id="page2">
+                <div class="content">
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <div id="fb-root"></div>
+
+                            <script>
+                                // Issue a warning if trying to preview an exported project on disk.
+                                (function() {
+                                    // Check for running exported on file protocol
+                                    if (window.location.protocol.substr(0, 4) === "file") {
+                                        alert("Exported games won't work until you upload them. (When running on the file:/// protocol, browsers block many features from working for security reasons.)");
+                                    }
+                                })();
+                            </script>
+
+                            <!-- The canvas must be inside a div called c2canvasdiv -->
+                            <div id="c2canvasdiv">
+
+                                <!-- The canvas the project will render to.  If you change its ID, don't forget to change the
+                            ID the runtime looks for in the jQuery events above (ready() and cr_sizeCanvas()). -->
+                                <canvas id="c2canvas" width="800" height="600">
+                              <!-- This text is displayed if the visitor's browser does not support HTML5.
+                              You can change it, but it is a good idea to link to a description of a browser
+                              and provide some links to download some popular HTML5-compatible browsers. -->
+                              <h1>Your browser does not appear to support HTML5.  Try upgrading your browser to the latest version.  <a href="http://www.whatbrowser.org">What is a browser?</a>
+                              <br/><br/><a href="http://www.microsoft.com/windows/internet-explorer/default.aspx">Microsoft Internet Explorer</a><br/>
+                              <a href="http://www.mozilla.com/firefox/">Mozilla Firefox</a><br/>
+                              <a href="http://www.google.com/chrome/">Google Chrome</a><br/>
+                              <a href="http://www.apple.com/safari/download/">Apple Safari</a></h1>
+                            </canvas>
+
+                            </div>
+
+                            <!-- Pages load faster with scripts at the bottom -->
+
+                            <!-- Construct 2 exported games require jQuery. -->
+                            <script src="jquery-2.1.1.min.js"></script>
 
 
-	
-    <!-- The runtime script.  You can rename it, but don't forget to rename the reference here as well.
-    This file will have been minified and obfuscated if you enabled "Minify script" during export. -->
-	<script src="c2runtime.js"></script>
 
+                            <!-- The runtime script.  You can rename it, but don't forget to rename the reference here as well.
+                            This file will have been minified and obfuscated if you enabled "Minify script" during export. -->
+                            <script src="c2runtime.js"></script>
+
+                            <script>
+                                // Start the Construct 2 project running on window load.
+                                jQuery(document).ready(function() {
+                                    // Create new runtime using the c2canvas
+                                    cr_createRuntime("c2canvas");
+                                });
+
+                                // Pause and resume on page becoming visible/invisible
+                                function onVisibilityChanged() {
+                                    if (document.hidden || document.mozHidden || document.webkitHidden || document.msHidden)
+                                        cr_setSuspended(true);
+                                    else
+                                        cr_setSuspended(false);
+                                };
+
+                                document.addEventListener("visibilitychange", onVisibilityChanged, false);
+                                document.addEventListener("mozvisibilitychange", onVisibilityChanged, false);
+                                document.addEventListener("webkitvisibilitychange", onVisibilityChanged, false);
+                                document.addEventListener("msvisibilitychange", onVisibilityChanged, false);
+
+                                function OnRegisterSWError(e) {
+                                    console.warn("Failed to register service worker: ", e);
+                                };
+
+                                // Runtime calls this global method when ready to start caching (i.e. after startup).
+                                // This registers the service worker which caches resources for offline support.
+                                window.C2_RegisterSW = function C2_RegisterSW() {
+                                    if (!navigator.serviceWorker)
+                                        return; // no SW support, ignore call
+
+                                    try {
+                                        navigator.serviceWorker.register("sw.js", {
+                                                scope: "./"
+                                            })
+                                            .then(function(reg) {
+                                                console.log("Registered service worker on " + reg.scope);
+                                            })
+                                            .catch(OnRegisterSWError);
+                                    } catch (e) {
+                                        OnRegisterSWError(e);
+                                    }
+                                };
+                            </script>
+
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- página 3 -->
+            <section id="page3" class="bg-primary">
+                <div class="content">
+                    <div class="container clearfix">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h2 class="heading">O que somos?</h2>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <img src="img/logo_projeto.png" class="img-responsive" width="60%">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <p class="text-dark">Menores em Ação é um projeto que busca informar e conscientizar os jovens em idade atendida pela Fundação CASA sobre o impacto de suas ações e consequências em nível criminal, afinal os jovens devem tomar ciência
+                                            de que suas ações tem consequências, e nem sempre elas são boas. Pensar antes de agir é essencial, e se for para errar, que seja em um jogo, não na vida real. </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- página 4 -->
+            <section id="page4" class="bg-primary">
+                <div class="content">
+                    <div class="container clearfix">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h2 class="heading">Qual o problema?</h2>
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <p class="text-dark">Os níveis criminais no Brasil são absurdamente altos se comparados a outros países. Então como diminuir a criminalidade? Por onde começar? Como fazer? Alguns começam cedo, outros tarde... Mas o fato é que as crianças
+                                            nascem inocentes e, por influencia de alguém , acabam tomando decisões precipitadas. A Fundação CASA (antiga FEBEM) é a instituição responsável por reeducar e reintegrar jovens delinquentes à sociedade, porém,
+                                            a partir de pesquisas e relatos dos próprios jovens, o que acontece lá dentro é totalmente o oposto do que é divulgado. Ao reeducar os jovens, a instituição estaria evitando que os mesmos, quando mais velhos,
+                                            fossem presos e contribuíssem com a superlotação de celas no Brasil. Então por que isso não acontece? </p>
+                                        <div class="col-sm-2">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- página 5 -->
+            <section id="page5" class="bg-primary">
+                <div class="content">
+                    <div class="container clearfix">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h2 class="heading">Escolha e Decisão - Jovens na Fundação CASA</h2>
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <p class="text-dark">Crimes cometidos por menores são alvo de muitos debates. A questão que vamos debater é: o jovem fez por escolha própria ou algo o levou a tomar a “decisão”? <br><br>Para elaboração deste projeto, foram realizadas
+                                            pesquisas sobre alguns assuntos que estão relacionados ao tema, como: Estatuto da Criança e do Adolescente, Fundação CASA, maioridade penal, medidas sócio- educativas, transgressão e juventude encarcerada, universo
+                                            moral do jovem interno, índice criminal de menores, psicoterapia e direitos humanos, além de entrevistas realizadas por um renomado jornalista com os jovens da Fundação CASA. Todos os objetos estudados servirão
+                                            de base para o desenvolvimento deste projeto.</p>
+                                        <div class="col-sm-2">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+    <!-- Javascript files-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script>
-		// Start the Construct 2 project running on window load.
-		jQuery(document).ready(function ()
-		{			
-			// Create new runtime using the c2canvas
-			cr_createRuntime("c2canvas");
-		});
-		
-		// Pause and resume on page becoming visible/invisible
-		function onVisibilityChanged() {
-			if (document.hidden || document.mozHidden || document.webkitHidden || document.msHidden)
-				cr_setSuspended(true);
-			else
-				cr_setSuspended(false);
-		};
-		
-		document.addEventListener("visibilitychange", onVisibilityChanged, false);
-		document.addEventListener("mozvisibilitychange", onVisibilityChanged, false);
-		document.addEventListener("webkitvisibilitychange", onVisibilityChanged, false);
-		document.addEventListener("msvisibilitychange", onVisibilityChanged, false);
-		
-		function OnRegisterSWError(e)
-		{
-			console.warn("Failed to register service worker: ", e);
-		};
-		
-		// Runtime calls this global method when ready to start caching (i.e. after startup).
-		// This registers the service worker which caches resources for offline support.
-		window.C2_RegisterSW = function C2_RegisterSW()
-		{
-			if (!navigator.serviceWorker)
-				return;		// no SW support, ignore call
-			
-			try {
-				navigator.serviceWorker.register("sw.js", { scope: "./" })
-				.then(function (reg)
-				{
-					console.log("Registered service worker on " + reg.scope);
-				})
-				.catch(OnRegisterSWError);
-			}
-			catch (e)
-			{
-				OnRegisterSWError(e);
-			}
-		};
+        window.jQuery || document.write('<script src="js/jquery-1.11.0.min.js"><\/script>')
     </script>
-</body> 
-</html> 
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="js/jquery.cookie.js"></script>
+    <script src="js/jquery.onepage-scroll.js"></script>
+    <script src="js/front.js"></script>
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID.-->
+    <script>
+        (function(b, o, i, l, e, r) {
+            b.GoogleAnalyticsObject = l;
+            b[l] || (b[l] =
+                function() {
+                    (b[l].q = b[l].q || []).push(arguments)
+                });
+            b[l].l = +new Date;
+            e = o.createElement(i);
+            r = o.getElementsByTagName(i)[0];
+            e.src = '//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e, r)
+        }(window, document, 'script', 'ga'));
+        ga('create', 'UA-XXXXX-X');
+        ga('send', 'pageview');
+    </script>
+</body>
+
+</html>
